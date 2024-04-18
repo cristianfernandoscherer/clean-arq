@@ -27,11 +27,11 @@ describe("Unit test create product use case", () => {
       price: input.price
     });
   });
-  
+
   it("should thrown an error when name is missing", async () => {
     const customerRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(customerRepository);
-    
+
     input.name = "";
 
     await expect(productCreateUseCase.execute(input)).rejects.toThrow(
@@ -48,7 +48,7 @@ describe("Unit test create product use case", () => {
     input.price = -1;
 
     await expect(productCreateUseCase.execute(input)).rejects.toThrow(
-      "Price must be greater than zero"
+      "product: Price needs to be grater than 0"
     );
   });
 });
