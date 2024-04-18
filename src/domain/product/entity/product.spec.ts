@@ -19,6 +19,12 @@ describe("Product unit tests", () => {
     }).toThrowError("product: Price needs to be grater than 0");
   });
 
+  it("should throw two errors", () => {
+    expect(() => {
+      const product = new Product("", "", -1);
+    }).toThrowError("product: Id is required,product: Name is required,product: Price needs to be grater than 0");
+  });
+
   it("should change name", () => {
     const product = new Product("123", "Product 1", 100);
     product.changeName("Product 2");
