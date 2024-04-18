@@ -2,15 +2,15 @@ import ProductFactory from "../../../domain/product/factory/product.factory";
 import ListCustomerUseCase from "../../customer/list/list.customer.usecase";
 import ListProductUseCase from "./list.product.usecase";
 const product1 = ProductFactory.create(
-    "a",
-    "Camiseta vermelha",
-    10.2
+  "a",
+  "Camiseta vermelha",
+  10.2
 );
 
 const product2 = ProductFactory.create(
-    "b",
-    "Camiseta vermelha 2",
-    10.4
+  "b",
+  "Camiseta vermelha 2",
+  10.4
 );
 
 const MockRepository = () => {
@@ -27,7 +27,7 @@ describe("Unit test for listing customer use case", () => {
     const repository = MockRepository();
     const useCase = new ListProductUseCase(repository);
 
-    const output = await useCase.execute({});
+    const output = await useCase.execute();
 
     expect(output.products.length).toBe(2);
     expect(output.products[0].id).toBe(product1.id);
